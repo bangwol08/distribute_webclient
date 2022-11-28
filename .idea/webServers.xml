@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ad70eb51-9970-4f2a-89b9-24fa1d35dab1" name="test">
+        <fileTransfer accessType="SFTP" host="bangwol08.iptime.org" port="50005" sshConfigId="003c4855-43e1-4448-a81d-acdd14b94e91" sshConfig="tempuser@bangwol08.iptime.org:50005 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
