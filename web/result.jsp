@@ -160,14 +160,6 @@
         <img src="./images/wordcloud.png"/>
 
     </div>
-    <div class="form">
-        <form action="/getdata" method="GET">
-            <div id="butt_form">
-                <br>
-                <button id="butt" type="submit">Get Data</button>
-            </div>
-        </form>
-    </div>
 </div>
 <div class="data">
     <div class="datas">

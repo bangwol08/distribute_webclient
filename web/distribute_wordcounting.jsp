@@ -62,9 +62,56 @@
             }
         }
 
+
         //DB INSERT 수행.
         try
         {
+            //rawData 전체 라인 수 읽기
+            String filePath = application.getRealPath("/WEB-INF/rawData.txt");
+            BufferedReader countFile = new BufferedReader(new FileReader(filePath));
+
+            int Totalline = 0;
+            while(countFile.readLine() != null)
+            {
+                Totalline++;
+            }
+
+            //txt파일에서 한줄씩 읽어오면서 INSERT수행
+            BufferedReader inFile = new BufferedReader(new FileReader(filePath));
+            String lineString;
+            int count=0;
+            int linePointer = 0;
+            int dbPointer = 0;
+            int connPointer = 1;
+            while((lineString = inFile.readLine()) != null)
+            {
+                //sql에서 '를 인식하지 못하는 문제때문에 ''으로 문자열 재배치 후 INSERT 수행
+                if(count<1000)
+                {
+                    lineString = lineString.replace("\'", "\'\'").replace("\"", "\"\"");
+                    server_DBcontrol[0].insertData(lineString);
+                }
+                else if(count>1001 && count<1100)
+                {
+                    lineString = lineString.replace("\'", "\'\'").replace("\"", "\"\"");
+                    server_DBcontrol[1].insertData(lineString);
+                }
+                else if(count>1101 && count<1300)
+                {
+                    lineString = lineString.replace("\'", "\'\'").replace("\"", "\"\"");
+                    server_DBcontrol[2].insertData(lineString);
+                }
+                else if(count>1301 && count<1500)
+                {
+                    lineString = lineString.replace("\'", "\'\'").replace("\"", "\"\"");
+                    server_DBcontrol[3].insertData(lineString);
+                }
+                count++;
+
+            }
+            out.println("<script> alert('분산저장 성공!'); </script>");
+
+            /*
             //rawData 전체 라인 수 읽기
             String filePath = application.getRealPath("/WEB-INF/rawData.txt");
             BufferedReader countFile = new BufferedReader(new FileReader(filePath));
@@ -111,6 +158,7 @@
                 }
             }
             out.println("<script> alert('분산저장 성공!'); </script>");
+            */
 
             //워드카운팅 전 결과값DB삭제
             DBcontroller DBcontroller = new DBcontroller("resultDB","192.168.127.134", "3306", "distribute_database", "tempuser", "qwe123!@#");

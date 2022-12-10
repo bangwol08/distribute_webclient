@@ -5,8 +5,7 @@
       <element id="artifact" artifact-name="distribute_webclient:war exploded" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="lib">
-          <element id="file-copy" path="$PROJECT_DIR$/../../mariadb-java-client-2.4.0.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../cos.jar" />
+          <element id="library" level="project" name="lib" />
         </element>
       </element>
     </root>
